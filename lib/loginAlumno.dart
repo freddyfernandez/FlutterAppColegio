@@ -8,14 +8,14 @@ import 'menuPageAlumno.dart';
 // ignore: must_be_immutable
 class LoginAlumnoPage extends StatefulWidget {
   LoginAlumnoPage({Key key, this.title}) : super(key: key);
-  final String title;
+  String title;
+  String email, contrasena;
   @override
   _LoginAlumnoPageState createState() => _LoginAlumnoPageState();
 }
 
 class _LoginAlumnoPageState extends State<LoginAlumnoPage> {
   FirebaseAuth auth = FirebaseAuth.instance;
-  String email, contrasena;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class _LoginAlumnoPageState extends State<LoginAlumnoPage> {
                       labelText: "Email",
                     ),
                     onChanged: (value) {
-                      email = value;
+                      widget.email = value;
                     },
                   ),
                   TextField(
@@ -52,19 +52,21 @@ class _LoginAlumnoPageState extends State<LoginAlumnoPage> {
                       labelText: "Password",
                     ),
                     onChanged: (value) {
-                      contrasena = value;
+                      widget.contrasena = value;
                     },
                   ),
                   RaisedButton(
                     onPressed: () async {
                       try {
                         final user = await auth.signInWithEmailAndPassword(
-                            email: email, password: contrasena);
+                            email: widget.email, password: widget.contrasena);
                         if (user != null) {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) {
                             return MenuPageAlumno(
-                                title: 'Pagina Principal del Estudiante');
+                                widget.title =
+                                    'Pagina Principal del Estudiante',
+                                widget.email);
                           }));
                         }
                       } catch (e) {}

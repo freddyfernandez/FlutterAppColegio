@@ -63,7 +63,8 @@ class _LoginPageState extends State<LoginPage> {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) {
                             return MenuPageDocente(
-                                title: 'Pagina Principal del Docente');
+                                title: 'Pagina Principal del Docente',
+                                correo: email);
                           }));
                         }
                       } catch (e) {}

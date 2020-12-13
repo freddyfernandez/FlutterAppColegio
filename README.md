@@ -6,8 +6,8 @@ A new Flutter project.
 
 
 INICIAR SESION: 
-- luis@gmail.com, password:luis12
-- renzo@gmail.com, password:renzo12
+- correo: luis@gmail.com, password: luis12
+- correo: renzo@gmail.com, password: renzo12
 
 A few resources to get you started if this is your first Flutter project:
 
